@@ -1,6 +1,7 @@
 {
   "name": "yangqi-portfolio",
   "version": "0.1.0",
+  "author": "Yang Qi",
   "private": true,
   "scripts": {
     "dev": "next dev",
