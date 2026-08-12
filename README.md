@@ -6,7 +6,7 @@ My positioning: Research Engineer working on efficient machine learning architec
 
 ## Website
 
-Deployment URL: coming soon
+https://yangqi-portfolio.vercel.app/
 
 ## Tech Stack
 
