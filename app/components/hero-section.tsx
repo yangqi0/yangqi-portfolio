@@ -9,7 +9,6 @@ export function HeroSection() {
     <section
       aria-labelledby="hero-title"
       className="scroll-mt-32 md:scroll-mt-20"
-      id="top"
     >
       <div className="mx-auto grid max-w-[76rem] gap-10 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[minmax(0,1.65fr)_minmax(16rem,0.65fr)] lg:gap-20 lg:px-10 lg:py-24">
         <div>

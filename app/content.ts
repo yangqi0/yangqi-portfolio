@@ -4,20 +4,22 @@ export const links = {
   github: "https://github.com/yangqi0",
   linkedIn: "https://www.linkedin.com/in/yang-qi-a92a404b/",
   petitGpt: "https://github.com/yangqi0/petitgpt",
+  petitGptArticle: "/blog/building-petitgpt",
   scholar:
     "https://scholar.google.com/citations?user=OahUJg0AAAAJ&hl=en",
 } as const;
 
 export const primaryNavigation = [
-  { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
-  { href: "#skills", label: "Skills" },
-  { href: "#research", label: "Research" },
+  { href: "/blog", label: "Blog" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/#experience", label: "Experience" },
+  { href: "/#skills", label: "Skills" },
+  { href: "/#research", label: "Research" },
 ] as const;
 
 export const mobileNavigation = [
   ...primaryNavigation,
-  { href: "#contact", label: "Contact" },
+  { href: "/#contact", label: "Contact" },
 ] as const;
 
 export const focusAreas = [
@@ -36,6 +38,7 @@ type ProjectMetric = {
 type ProjectLink = {
   label: "Repository" | "Technical write-up" | "Demo" | "arXiv paper";
   href: string;
+  external: boolean;
 };
 
 export type Project = {
@@ -53,20 +56,27 @@ export const projects: readonly Project[] = [
   {
     index: "01",
     context: "Independent ML systems",
-    title: "petitGPT",
-    subtitle: "Language Model Training from Scratch",
-    links: [{ label: "Repository", href: links.petitGpt }],
+    title: "PetitGPT",
+    subtitle: "End-to-End LLM Training and Post-Training",
+    links: [
+      {
+        label: "Technical write-up",
+        href: links.petitGptArticle,
+        external: false,
+      },
+      { label: "Repository", href: links.petitGpt, external: true },
+    ],
     summary:
-      "A from-scratch PyTorch implementation spanning model architecture, pretraining, post-training, and evaluation; the model was pretrained on a single RTX 4090.",
+      "A from-scratch PyTorch stack spanning tokenization, pretraining, post-training, evaluation, and regression testing, developed and trained on a single RTX 4090 setup.",
     points: [
-      "Built and pretrained a ~137M-parameter, 16-layer LLaMA-style decoder with RoPE, RMSNorm, and SwiGLU.",
-      "Developed the post-training pipeline: supervised fine-tuning, targeted response distillation for Python function generation, DPO, and evaluation.",
-      "Built a code-data verification pipeline with Python AST and structural checks, time-bounded unit tests using allowlisted built-ins, and teacher-assisted repair followed by reverification.",
+      "Designed the current 16-layer, 133.13M-parameter decoder with corrected half-split RoPE, RMSNorm, SwiGLU, causal SDPA, and tied embeddings.",
+      "Implemented the full path from a 32k BPE tokenizer and mixed-corpus pretraining through SFT, targeted code distillation, DPO, and GRPO/RLVR.",
+      "Encoded critical model, tokenizer, chat-masking, MoE, KV-cache, DPO, and GRPO contracts in an 84-test regression suite.",
     ],
     metrics: [
-      { label: "Model size", value: "~137M", detail: "parameters" },
-      { label: "Architecture", value: "16", detail: "decoder layers" },
-      { label: "Training hardware", value: "1×", detail: "RTX 4090" },
+      { label: "Model size", value: "133.13M", detail: "current parameters" },
+      { label: "Architecture", value: "16", detail: "current decoder layers" },
+      { label: "Development setup", value: "1×", detail: "RTX 4090" },
     ],
   },
   {
@@ -101,7 +111,11 @@ export const projects: readonly Project[] = [
     title: "Correlated Spiked Tensor Models",
     subtitle: "High-dimensional recovery",
     links: [
-      { label: "arXiv paper", href: "https://arxiv.org/abs/2503.03356" },
+      {
+        label: "arXiv paper",
+        href: "https://arxiv.org/abs/2503.03356",
+        external: true,
+      },
     ],
     summary:
       "Theory and algorithms for recovering multiple correlated spikes in high-dimensional tensor models.",
@@ -138,8 +152,8 @@ export const recentExperience = [
     role: "Independent Researcher",
     organization: "Independent AI/ML Projects",
     points: [
-      "Built petitGPT, a ~137M-parameter LLaMA-style decoder pretrained from scratch in PyTorch on a single RTX 4090.",
-      "Implemented post-training and evaluation spanning supervised fine-tuning, targeted response distillation for Python function generation, DPO, and code-data verification.",
+      "Built PetitGPT, an end-to-end PyTorch LLM training stack whose current design is a 16-layer, 133.13M-parameter decoder, developed on a single RTX 4090 setup.",
+      "Implemented pretraining, supervised fine-tuning, targeted code distillation, DPO, GRPO/RLVR, KV-cache decoding, and an 84-test correctness suite.",
     ],
   },
 ] as const satisfies readonly RecentExperience[];

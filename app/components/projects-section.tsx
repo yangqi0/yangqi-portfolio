@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { projects } from "@/app/content";
 
 import { OutboundLink } from "./outbound-link";
@@ -40,12 +42,22 @@ export function ProjectsSection() {
                   <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-3">
                     {project.links.map((link) => (
                       <li key={`${link.label}-${link.href}`}>
-                        <OutboundLink
-                          className="text-sm font-medium text-[var(--accent-dark)] underline decoration-[var(--link-line)] underline-offset-4 hover:text-[var(--accent)]"
-                          href={link.href}
-                        >
-                          {link.label}
-                        </OutboundLink>
+                        {link.external ? (
+                          <OutboundLink
+                            className="text-sm font-medium text-[var(--accent-dark)] underline decoration-[var(--link-line)] underline-offset-4 hover:text-[var(--accent)]"
+                            href={link.href}
+                          >
+                            {link.label}
+                          </OutboundLink>
+                        ) : (
+                          <Link
+                            className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--accent-dark)] underline decoration-[var(--link-line)] underline-offset-4 hover:text-[var(--accent)]"
+                            href={link.href}
+                          >
+                            {link.label}
+                            <span aria-hidden="true">→</span>
+                          </Link>
+                        )}
                       </li>
                     ))}
                   </ul>

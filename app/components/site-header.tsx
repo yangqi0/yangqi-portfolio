@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { links, mobileNavigation, primaryNavigation } from "@/app/content";
 
 import { OutboundLink } from "./outbound-link";
@@ -6,13 +8,13 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--line)]/90 bg-[var(--paper)]/95 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-[76rem] items-center justify-between gap-5 px-5 sm:px-8 lg:px-10">
-        <a
-          aria-label="Yang Qi, back to top"
+        <Link
+          aria-label="Yang Qi, home"
           className="font-mono text-sm font-semibold tracking-[0.08em] text-[var(--ink)] uppercase"
-          href="#top"
+          href="/"
         >
           Yang Qi
-        </a>
+        </Link>
 
         <div className="flex items-center gap-5 sm:gap-7">
           <nav
@@ -20,13 +22,13 @@ export function SiteHeader() {
             className="hidden items-center gap-6 text-sm text-[var(--muted)] md:flex"
           >
             {primaryNavigation.map((item) => (
-              <a
+              <Link
                 className="transition-colors hover:text-[var(--ink)]"
                 href={item.href}
                 key={item.href}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
           <OutboundLink
@@ -44,13 +46,13 @@ export function SiteHeader() {
       >
         <div className="mx-auto flex max-w-[76rem] gap-6 px-5 py-3 text-xs font-medium whitespace-nowrap text-[var(--muted)] sm:px-8">
           {mobileNavigation.map((item) => (
-            <a
+            <Link
               className="hover:text-[var(--ink)]"
               href={item.href}
               key={item.href}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </div>
       </nav>
