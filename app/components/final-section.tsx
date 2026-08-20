@@ -62,12 +62,6 @@ export function FinalSection() {
               <OutboundLink href={links.github}>GitHub</OutboundLink>
               <OutboundLink href={links.linkedIn}>LinkedIn</OutboundLink>
               <OutboundLink href={links.scholar}>Google Scholar</OutboundLink>
-              <OutboundLink
-                ariaLabel="Open Yang Qi's CV PDF in a new tab"
-                href={links.cv}
-              >
-                CV (PDF)
-              </OutboundLink>
             </div>
           </section>
         </div>

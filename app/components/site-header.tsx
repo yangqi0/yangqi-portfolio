@@ -1,8 +1,6 @@
 import Link from "next/link";
 
-import { links, mobileNavigation, primaryNavigation } from "@/app/content";
-
-import { OutboundLink } from "./outbound-link";
+import { mobileNavigation, primaryNavigation } from "@/app/content";
 
 export function SiteHeader() {
   return (
@@ -16,29 +14,20 @@ export function SiteHeader() {
           Yang Qi
         </Link>
 
-        <div className="flex items-center gap-5 sm:gap-7">
-          <nav
-            aria-label="Primary navigation"
-            className="hidden items-center gap-6 text-sm text-[var(--muted)] md:flex"
-          >
-            {primaryNavigation.map((item) => (
-              <Link
-                className="transition-colors hover:text-[var(--ink)]"
-                href={item.href}
-                key={item.href}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-          <OutboundLink
-            ariaLabel="Open Yang Qi's CV PDF in a new tab"
-            className="rounded-sm border border-[var(--ink)] px-3 py-1.5 text-sm font-medium transition-colors hover:bg-[var(--ink)] hover:text-white"
-            href={links.cv}
-          >
-            CV
-          </OutboundLink>
-        </div>
+        <nav
+          aria-label="Primary navigation"
+          className="hidden items-center gap-6 text-sm text-[var(--muted)] md:flex"
+        >
+          {primaryNavigation.map((item) => (
+            <Link
+              className="transition-colors hover:text-[var(--ink)]"
+              href={item.href}
+              key={item.href}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
       </div>
       <nav
         aria-label="Mobile section navigation"

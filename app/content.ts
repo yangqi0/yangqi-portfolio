@@ -1,5 +1,4 @@
 export const links = {
-  cv: "/Yang_Qi_Resume.pdf",
   email: "mailto:qiyang0730@gmail.com",
   github: "https://github.com/yangqi0",
   linkedIn: "https://www.linkedin.com/in/yang-qi-a92a404b/",

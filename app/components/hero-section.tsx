@@ -33,13 +33,6 @@ export function HeroSection() {
 
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
             <OutboundLink
-              ariaLabel="Open Yang Qi's CV PDF in a new tab"
-              className="rounded-sm bg-[var(--ink)] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[var(--accent-dark)]"
-              href={links.cv}
-            >
-              CV (PDF)
-            </OutboundLink>
-            <OutboundLink
               className="text-sm font-medium underline decoration-[var(--link-line)] underline-offset-4 transition-colors hover:text-[var(--accent)]"
               href={links.github}
             >
