@@ -53,10 +53,11 @@ export function FinalSection() {
               Contact
             </h2>
             <a
-              className="mt-5 inline-block break-all text-lg font-medium tracking-[-0.02em] text-[var(--accent-dark)] underline decoration-[var(--link-line)] underline-offset-[0.3em] transition-colors hover:text-[var(--accent)] sm:text-xl"
+              className="mt-5 inline-flex items-center gap-1.5 text-lg font-medium tracking-[-0.02em] text-[var(--accent-dark)] underline decoration-[var(--link-line)] underline-offset-[0.3em] transition-colors hover:text-[var(--accent)] sm:text-xl"
               href={links.email}
             >
-              qiyang0730@gmail.com
+              Email
+              <span aria-hidden="true">→</span>
             </a>
             <div className="mt-5 flex flex-wrap gap-x-6 gap-y-4 text-sm font-medium">
               <OutboundLink href={links.github}>GitHub</OutboundLink>
