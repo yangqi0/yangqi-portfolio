@@ -1,8 +1,9 @@
 export const links = {
   email: "mailto:qiyang0730@gmail.com",
   github: "https://github.com/yangqi0",
-  linkedIn: "https://www.linkedin.com/in/yang-qi-a92a404b/",
+  linkedIn: "https://www.linkedin.com/in/yangqi-ai/",
   petitGpt: "https://github.com/yangqi0/petitgpt",
+  petitGptModel: "https://huggingface.co/yqi0/petitgpt",
   petitGptArticle: "/blog/building-petitgpt",
   scholar:
     "https://scholar.google.com/citations?user=OahUJg0AAAAJ&hl=en",
@@ -35,7 +36,7 @@ type ProjectMetric = {
 };
 
 type ProjectLink = {
-  label: "Repository" | "Technical write-up" | "Demo" | "arXiv paper";
+  label: "Repository" | "Technical write-up" | "Model weights" | "Demo" | "arXiv paper";
   href: string;
   external: boolean;
 };
@@ -56,7 +57,7 @@ export const projects: readonly Project[] = [
     index: "01",
     context: "Independent ML systems",
     title: "PetitGPT",
-    subtitle: "End-to-End LLM Training and Post-Training",
+    subtitle: "A 124.6M Language Model Trained from Scratch",
     links: [
       {
         label: "Technical write-up",
@@ -64,18 +65,19 @@ export const projects: readonly Project[] = [
         external: false,
       },
       { label: "Repository", href: links.petitGpt, external: true },
+      { label: "Model weights", href: links.petitGptModel, external: true },
     ],
     summary:
-      "A from-scratch PyTorch stack spanning tokenization, pretraining, post-training, evaluation, and regression testing, developed and trained on a single RTX 4090 setup.",
+      "A released language model pretrained on approximately 13B token positions using one RTX 4090, with a custom tokenizer, instruction tuning, reproducible evaluation, and native PyTorch inference.",
     points: [
-      "Designed the current 16-layer, 133.13M-parameter decoder with corrected half-split RoPE, RMSNorm, SwiGLU, causal SDPA, and tied embeddings.",
-      "Implemented the full path from a 32k BPE tokenizer and mixed-corpus pretraining through SFT, targeted code distillation, DPO, and GRPO/RLVR.",
-      "Encoded critical model, tokenizer, chat-masking, MoE, KV-cache, DPO, and GRPO contracts in an 84-test regression suite.",
+      "Built a 30-layer, 124.6M-parameter decoder with grouped-query attention, RMSNorm, SwiGLU, and tied embeddings; pretraining reached reference validation loss 2.4702.",
+      "Reached 57.74% ARC-Easy and 28.16% ARC-Challenge accuracy, ahead of two evaluated SmolLM 135M instruct baselines under the same protocol; results were lower on PIQA and HellaSwag.",
+      "Published the weights, tokenizer, training recipes, evaluation protocols, loss curves, and success/failure cases; studied adaptation and capability retention through SFT, DPO, response distillation, and LoRA.",
     ],
     metrics: [
-      { label: "Model size", value: "133.13M", detail: "current parameters" },
-      { label: "Architecture", value: "16", detail: "current decoder layers" },
-      { label: "Development setup", value: "1×", detail: "RTX 4090" },
+      { label: "Model size", value: "124.6M", detail: "released parameters" },
+      { label: "Pretraining", value: "13B", detail: "token positions" },
+      { label: "Training hardware", value: "1×", detail: "RTX 4090" },
     ],
   },
   {
@@ -151,8 +153,8 @@ export const recentExperience = [
     role: "Independent Researcher",
     organization: "Independent AI/ML Projects",
     points: [
-      "Built PetitGPT, an end-to-end PyTorch LLM training stack whose current design is a 16-layer, 133.13M-parameter decoder, developed on a single RTX 4090 setup.",
-      "Implemented pretraining, supervised fine-tuning, targeted code distillation, DPO, GRPO/RLVR, KV-cache decoding, and an 84-test correctness suite.",
+      "Trained and released PetitGPT, a 30-layer, 124.6M-parameter language model, from tokenizer training through approximately 13B pretraining positions on one RTX 4090.",
+      "Built instruction-tuning and checkpoint-interpolation workflows, evaluated post-training trade-offs, and published native inference, benchmark protocols, training curves, and reproducibility documentation.",
     ],
   },
 ] as const satisfies readonly RecentExperience[];

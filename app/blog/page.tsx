@@ -59,7 +59,9 @@ export default function BlogPage() {
               <li className="grid gap-6 border-b border-[var(--line)] py-9 md:grid-cols-[10rem_minmax(0,1fr)] md:gap-10 lg:grid-cols-[12rem_minmax(0,1fr)] lg:py-11" key={post.slug}>
                 <div className="font-mono text-xs leading-6 text-[var(--muted)]">
                   <p>{String(index + 1).padStart(2, "0")}</p>
-                  <time dateTime={post.date}>{post.displayDate}</time>
+                  <time dateTime={post.updatedDate ?? post.date}>
+                    {post.updatedDate ? `Updated ${post.displayUpdatedDate}` : post.displayDate}
+                  </time>
                   <p>{post.author}</p>
                 </div>
                 <article>

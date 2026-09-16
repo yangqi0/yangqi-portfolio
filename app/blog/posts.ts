@@ -8,6 +8,8 @@ export type BlogPost = {
   description: string;
   date: `${number}-${number}-${number}`;
   displayDate: string;
+  updatedDate?: `${number}-${number}-${number}`;
+  displayUpdatedDate?: string;
   author: "Yang Qi";
   series: string;
   repository: string;
@@ -17,13 +19,15 @@ export const publishedPosts = [
   {
     slug: "building-petitgpt",
     title:
-      "Building PetitGPT: An End-to-End LLM Training and Post-Training Stack on a Single RTX 4090",
+      "PetitGPT: Training and Evaluating a 124.6M Language Model on One GPU",
     description:
-      "From tokenizer and pretraining to SFT, distillation, DPO, and GRPO—and the engineering contracts that make the system trustworthy.",
+      "The research-v1 release: 13B pretraining positions on one RTX 4090, a 30-layer model, measured benchmark results, and the trade-offs behind instruction tuning.",
     date: "2026-08-13",
     displayDate: "August 13, 2026",
+    updatedDate: "2026-09-16",
+    displayUpdatedDate: "September 16, 2026",
     author: "Yang Qi",
-    series: "PetitGPT · Part 1",
+    series: "PetitGPT · research-v1",
     repository: "https://github.com/yangqi0/petitgpt",
   },
 ] as const satisfies readonly BlogPost[];

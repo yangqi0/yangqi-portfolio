@@ -15,7 +15,10 @@ export function ArticleHeader({ post }: { post: BlogPost }) {
         {post.description}
       </p>
       <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-[var(--line)] pt-5 font-mono text-xs text-[var(--muted)]">
-        <time dateTime={post.date}>{post.displayDate}</time>
+        <time dateTime={post.date}>Published {post.displayDate}</time>
+        {post.updatedDate && (
+          <time dateTime={post.updatedDate}>Updated {post.displayUpdatedDate}</time>
+        )}
         <span aria-hidden="true">/</span>
         <span>By {post.author}</span>
         <span aria-hidden="true">/</span>

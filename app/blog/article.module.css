@@ -434,3 +434,18 @@
     color: #111;
   }
 }
+
+.body :global(.article-chart) {
+  width: min(60rem, calc(100vw - 2.5rem));
+  max-width: 60rem;
+  margin: 2.5rem 0 2.75rem 50%;
+  transform: translateX(-50%);
+}
+
+.body :global(.article-chart img) {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  background: white;
+}
